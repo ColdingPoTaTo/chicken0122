@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbChicken22ModelStoreContainer" CdmEntityContainer="dbChicken22Entities">
+    <EntitySetMapping Name="tCampsite">
+      <EntityTypeMapping TypeName="dbChicken22Model.tCampsite">
+        <MappingFragment StoreEntitySet="tCampsite">
+          <ScalarProperty Name="fCampsiteID" ColumnName="fCampsiteID" />
+          <ScalarProperty Name="fMemberID" ColumnName="fMemberID" />
+          <ScalarProperty Name="fCampsiteName" ColumnName="fCampsiteName" />
+          <ScalarProperty Name="fCampsitePhone" ColumnName="fCampsitePhone" />
+          <ScalarProperty Name="fCampsiteArea" ColumnName="fCampsiteArea" />
+          <ScalarProperty Name="fCampsiteCity" ColumnName="fCampsiteCity" />
+          <ScalarProperty Name="fCampsiteAddress" ColumnName="fCampsiteAddress" />
+          <ScalarProperty Name="fCampsiteIntroduction" ColumnName="fCampsiteIntroduction" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tComment">
+      <EntityTypeMapping TypeName="dbChicken22Model.tComment">
+        <MappingFragment StoreEntitySet="tComment">
+          <ScalarProperty Name="fCommentID" ColumnName="fCommentID" />
+          <ScalarProperty Name="fMemberID" ColumnName="fMemberID" />
+          <ScalarProperty Name="fCampsiteID" ColumnName="fCampsiteID" />
+          <ScalarProperty Name="fComment" ColumnName="fComment" />
+          <ScalarProperty Name="fCommentScore" ColumnName="fCommentScore" />
+          <ScalarProperty Name="fCommentTime" ColumnName="fCommentTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tMember">
+      <EntityTypeMapping TypeName="dbChicken22Model.tMember">
+        <MappingFragment StoreEntitySet="tMember">
+          <ScalarProperty Name="fMemberID" ColumnName="fMemberID" />
+          <ScalarProperty Name="fName" ColumnName="fName" />
+          <ScalarProperty Name="fEmail" ColumnName="fEmail" />
+          <ScalarProperty Name="fPassword" ColumnName="fPassword" />
+          <ScalarProperty Name="fSex" ColumnName="fSex" />
+          <ScalarProperty Name="fBirthday" ColumnName="fBirthday" />
+          <ScalarProperty Name="fPhoto" ColumnName="fPhoto" />
+          <ScalarProperty Name="fGroup" ColumnName="fGroup" />
+          <ScalarProperty Name="fVerified" ColumnName="fVerified" />
+          <ScalarProperty Name="fAvailable" ColumnName="fAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tOptionCase">
+      <EntityTypeMapping TypeName="dbChicken22Model.tOptionCase">
+        <MappingFragment StoreEntitySet="tOptionCase">
+          <ScalarProperty Name="fOptionID" ColumnName="fOptionID" />
+          <ScalarProperty Name="fCampsiteID" ColumnName="fCampsiteID" />
+          <ScalarProperty Name="fOptionName" ColumnName="fOptionName" />
+          <ScalarProperty Name="fOptionPrice" ColumnName="fOptionPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tOrder">
+      <EntityTypeMapping TypeName="dbChicken22Model.tOrder">
+        <MappingFragment StoreEntitySet="tOrder">
+          <ScalarProperty Name="fOrderID" ColumnName="fOrderID" />
+          <ScalarProperty Name="fMemberID" ColumnName="fMemberID" />
+          <ScalarProperty Name="fTentID" ColumnName="fTentID" />
+          <ScalarProperty Name="fOrderName" ColumnName="fOrderName" />
+          <ScalarProperty Name="fOrderEmail" ColumnName="fOrderEmail" />
+          <ScalarProperty Name="fOrderPhone" ColumnName="fOrderPhone" />
+          <ScalarProperty Name="fOrderDate" ColumnName="fOrderDate" />
+          <ScalarProperty Name="fOrderPrice" ColumnName="fOrderPrice" />
+          <ScalarProperty Name="fOrderComment" ColumnName="fOrderComment" />
+          <ScalarProperty Name="fOrderPaid" ColumnName="fOrderPaid" />
+          <ScalarProperty Name="fOrderCreateTime" ColumnName="fOrderCreateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tRent">
+      <EntityTypeMapping TypeName="dbChicken22Model.tRent">
+        <MappingFragment StoreEntitySet="tRent">
+          <ScalarProperty Name="fRentID" ColumnName="fRentID" />
+          <ScalarProperty Name="fOrderID" ColumnName="fOrderID" />
+          <ScalarProperty Name="fOptionID" ColumnName="fOptionID" />
+          <ScalarProperty Name="fRentAmount" ColumnName="fRentAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tTag">
+      <EntityTypeMapping TypeName="dbChicken22Model.tTag">
+        <MappingFragment StoreEntitySet="tTag">
+          <ScalarProperty Name="fTagID" ColumnName="fTagID" />
+          <ScalarProperty Name="fTagName" ColumnName="fTagName" />
+          <ScalarProperty Name="fTagType" ColumnName="fTagType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tTent">
+      <EntityTypeMapping TypeName="dbChicken22Model.tTent">
+        <MappingFragment StoreEntitySet="tTent">
+          <ScalarProperty Name="fTentID" ColumnName="fTentID" />
+          <ScalarProperty Name="fCampsiteID" ColumnName="fCampsiteID" />
+          <ScalarProperty Name="fTentName" ColumnName="fTentName" />
+          <ScalarProperty Name="fTentCategory" ColumnName="fTentCategory" />
+          <ScalarProperty Name="fTentPeople" ColumnName="fTentPeople" />
+          <ScalarProperty Name="fTentPriceWeekday" ColumnName="fTentPriceWeekday" />
+          <ScalarProperty Name="fTentPriceWeekend" ColumnName="fTentPriceWeekend" />
+          <ScalarProperty Name="fTendPriceHoliday" ColumnName="fTendPriceHoliday" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tTentPhoto">
+      <EntityTypeMapping TypeName="dbChicken22Model.tTentPhoto">
+        <MappingFragment StoreEntitySet="tTentPhoto">
+          <ScalarProperty Name="fID" ColumnName="fID" />
+          <ScalarProperty Name="fTentID" ColumnName="fTentID" />
+          <ScalarProperty Name="fTentPhotoURL" ColumnName="fTentPhotoURL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="tCampFavorite" TypeName="dbChicken22Model.tCampFavorite" StoreEntitySet="tCampFavorite">
+      <EndProperty Name="tCampsite">
+        <ScalarProperty Name="fCampsiteID" ColumnName="fCampsiteID" />
+      </EndProperty>
+      <EndProperty Name="tMember">
+        <ScalarProperty Name="fMemberID" ColumnName="fMemberID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="tCampTag" TypeName="dbChicken22Model.tCampTag" StoreEntitySet="tCampTag">
+      <EndProperty Name="tCampsite">
+        <ScalarProperty Name="fCampsiteID" ColumnName="fCampsiteID" />
+      </EndProperty>
+      <EndProperty Name="tTag">
+        <ScalarProperty Name="fTagID" ColumnName="fTagID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="tCommentLike" TypeName="dbChicken22Model.tCommentLike" StoreEntitySet="tCommentLike">
+      <EndProperty Name="tComment">
+        <ScalarProperty Name="fCommentID" ColumnName="fCommentID" />
+      </EndProperty>
+      <EndProperty Name="tMember">
+        <ScalarProperty Name="fMemberID" ColumnName="fMemberID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

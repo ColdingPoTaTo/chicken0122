@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dbChicken22Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tCampsite">
+    <Key>
+      <PropertyRef Name="fCampsiteID" />
+    </Key>
+    <Property Name="fCampsiteID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fMemberID" Type="Int32" Nullable="false" />
+    <Property Name="fCampsiteName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fCampsitePhone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fCampsiteArea" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fCampsiteCity" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fCampsiteAddress" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fCampsiteIntroduction" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tMember" Relationship="Self.FK__tCampsite__fMemb__6383C8BA" FromRole="tCampsite" ToRole="tMember" />
+    <NavigationProperty Name="tComment" Relationship="Self.FK__tComment__fCamps__7B5B524B" FromRole="tCampsite" ToRole="tComment" />
+    <NavigationProperty Name="tOptionCase" Relationship="Self.FK__tOptionCa__fCamp__02084FDA" FromRole="tCampsite" ToRole="tOptionCase" />
+    <NavigationProperty Name="tTent" Relationship="Self.FK__tTent__fTendPric__66603565" FromRole="tCampsite" ToRole="tTent" />
+    <NavigationProperty Name="tMember1" Relationship="Self.tCampFavorite" FromRole="tCampsite" ToRole="tMember" />
+    <NavigationProperty Name="tTag" Relationship="Self.tCampTag" FromRole="tCampsite" ToRole="tTag" />
+  </EntityType>
+  <EntityType Name="tComment">
+    <Key>
+      <PropertyRef Name="fCommentID" />
+    </Key>
+    <Property Name="fCommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fMemberID" Type="Int32" Nullable="false" />
+    <Property Name="fCampsiteID" Type="Int32" Nullable="false" />
+    <Property Name="fComment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fCommentScore" Type="Int32" Nullable="false" />
+    <Property Name="fCommentTime" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tCampsite" Relationship="Self.FK__tComment__fCamps__7B5B524B" FromRole="tComment" ToRole="tCampsite" />
+    <NavigationProperty Name="tMember" Relationship="Self.FK__tComment__fMembe__7A672E12" FromRole="tComment" ToRole="tMember" />
+    <NavigationProperty Name="tMember1" Relationship="Self.tCommentLike" FromRole="tComment" ToRole="tMember" />
+  </EntityType>
+  <EntityType Name="tMember">
+    <Key>
+      <PropertyRef Name="fMemberID" />
+    </Key>
+    <Property Name="fMemberID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fPassword" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fSex" Type="Int32" Nullable="false" />
+    <Property Name="fBirthday" Type="DateTime" Precision="0" />
+    <Property Name="fPhoto" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="fGroup" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fVerified" Type="Boolean" Nullable="false" />
+    <Property Name="fAvailable" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tCampsite" Relationship="Self.FK__tCampsite__fMemb__6383C8BA" FromRole="tMember" ToRole="tCampsite" />
+    <NavigationProperty Name="tComment" Relationship="Self.FK__tComment__fMembe__7A672E12" FromRole="tMember" ToRole="tComment" />
+    <NavigationProperty Name="tOrder" Relationship="Self.FK__tOrder__fMemberI__693CA210" FromRole="tMember" ToRole="tOrder" />
+    <NavigationProperty Name="tCampsite1" Relationship="Self.tCampFavorite" FromRole="tMember" ToRole="tCampsite" />
+    <NavigationProperty Name="tComment1" Relationship="Self.tCommentLike" FromRole="tMember" ToRole="tComment" />
+  </EntityType>
+  <EntityType Name="tOptionCase">
+    <Key>
+      <PropertyRef Name="fOptionID" />
+    </Key>
+    <Property Name="fOptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fCampsiteID" Type="Int32" Nullable="false" />
+    <Property Name="fOptionName" Type="Int32" Nullable="false" />
+    <Property Name="fOptionPrice" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tCampsite" Relationship="Self.FK__tOptionCa__fCamp__02084FDA" FromRole="tOptionCase" ToRole="tCampsite" />
+    <NavigationProperty Name="tRent" Relationship="Self.FK__tRent__fOptionID__05D8E0BE" FromRole="tOptionCase" ToRole="tRent" />
+  </EntityType>
+  <EntityType Name="tOrder">
+    <Key>
+      <PropertyRef Name="fOrderID" />
+    </Key>
+    <Property Name="fOrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fMemberID" Type="Int32" Nullable="false" />
+    <Property Name="fTentID" Type="Int32" Nullable="false" />
+    <Property Name="fOrderName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fOrderEmail" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fOrderPhone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fOrderDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="fOrderPrice" Type="Int32" Nullable="false" />
+    <Property Name="fOrderComment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="fOrderPaid" Type="Boolean" Nullable="false" />
+    <Property Name="fOrderCreateTime" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="tMember" Relationship="Self.FK__tOrder__fMemberI__693CA210" FromRole="tOrder" ToRole="tMember" />
+    <NavigationProperty Name="tTent" Relationship="Self.FK__tOrder__fTentID__6A30C649" FromRole="tOrder" ToRole="tTent" />
+    <NavigationProperty Name="tRent" Relationship="Self.FK__tRent__fOrderID__04E4BC85" FromRole="tOrder" ToRole="tRent" />
+  </EntityType>
+  <EntityType Name="tRent">
+    <Key>
+      <PropertyRef Name="fRentID" />
+    </Key>
+    <Property Name="fRentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fOrderID" Type="Int32" Nullable="false" />
+    <Property Name="fOptionID" Type="Int32" Nullable="false" />
+    <Property Name="fRentAmount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tOptionCase" Relationship="Self.FK__tRent__fOptionID__05D8E0BE" FromRole="tRent" ToRole="tOptionCase" />
+    <NavigationProperty Name="tOrder" Relationship="Self.FK__tRent__fOrderID__04E4BC85" FromRole="tRent" ToRole="tOrder" />
+  </EntityType>
+  <EntityType Name="tTag">
+    <Key>
+      <PropertyRef Name="fTagID" />
+    </Key>
+    <Property Name="fTagID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fTagName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fTagType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tCampsite" Relationship="Self.tCampTag" FromRole="tTag" ToRole="tCampsite" />
+  </EntityType>
+  <EntityType Name="tTent">
+    <Key>
+      <PropertyRef Name="fTentID" />
+    </Key>
+    <Property Name="fTentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fCampsiteID" Type="Int32" Nullable="false" />
+    <Property Name="fTentName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fTentCategory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="fTentPeople" Type="Int32" Nullable="false" />
+    <Property Name="fTentPriceWeekday" Type="Int32" Nullable="false" />
+    <Property Name="fTentPriceWeekend" Type="Int32" Nullable="false" />
+    <Property Name="fTendPriceHoliday" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tCampsite" Relationship="Self.FK__tTent__fTendPric__66603565" FromRole="tTent" ToRole="tCampsite" />
+    <NavigationProperty Name="tOrder" Relationship="Self.FK__tOrder__fTentID__6A30C649" FromRole="tTent" ToRole="tOrder" />
+    <NavigationProperty Name="tTentPhoto" Relationship="Self.FK__tTentPhot__fTent__6D0D32F4" FromRole="tTent" ToRole="tTentPhoto" />
+  </EntityType>
+  <EntityType Name="tTentPhoto">
+    <Key>
+      <PropertyRef Name="fID" />
+    </Key>
+    <Property Name="fID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="fTentID" Type="Int32" Nullable="false" />
+    <Property Name="fTentPhotoURL" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tTent" Relationship="Self.FK__tTentPhot__fTent__6D0D32F4" FromRole="tTentPhoto" ToRole="tTent" />
+  </EntityType>
+  <Association Name="FK__tCampsite__fMemb__6383C8BA">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tCampsite" Type="Self.tCampsite" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberID" />
+      </Principal>
+      <Dependent Role="tCampsite">
+        <PropertyRef Name="fMemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tComment__fCamps__7B5B524B">
+    <End Role="tCampsite" Type="Self.tCampsite" Multiplicity="1" />
+    <End Role="tComment" Type="Self.tComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tCampsite">
+        <PropertyRef Name="fCampsiteID" />
+      </Principal>
+      <Dependent Role="tComment">
+        <PropertyRef Name="fCampsiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tOptionCa__fCamp__02084FDA">
+    <End Role="tCampsite" Type="Self.tCampsite" Multiplicity="1" />
+    <End Role="tOptionCase" Type="Self.tOptionCase" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tCampsite">
+        <PropertyRef Name="fCampsiteID" />
+      </Principal>
+      <Dependent Role="tOptionCase">
+        <PropertyRef Name="fCampsiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tTent__fTendPric__66603565">
+    <End Role="tCampsite" Type="Self.tCampsite" Multiplicity="1" />
+    <End Role="tTent" Type="Self.tTent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tCampsite">
+        <PropertyRef Name="fCampsiteID" />
+      </Principal>
+      <Dependent Role="tTent">
+        <PropertyRef Name="fCampsiteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tComment__fMembe__7A672E12">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tComment" Type="Self.tComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberID" />
+      </Principal>
+      <Dependent Role="tComment">
+        <PropertyRef Name="fMemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tOrder__fMemberI__693CA210">
+    <End Role="tMember" Type="Self.tMember" Multiplicity="1" />
+    <End Role="tOrder" Type="Self.tOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tMember">
+        <PropertyRef Name="fMemberID" />
+      </Principal>
+      <Dependent Role="tOrder">
+        <PropertyRef Name="fMemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tRent__fOptionID__05D8E0BE">
+    <End Role="tOptionCase" Type="Self.tOptionCase" Multiplicity="1" />
+    <End Role="tRent" Type="Self.tRent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tOptionCase">
+        <PropertyRef Name="fOptionID" />
+      </Principal>
+      <Dependent Role="tRent">
+        <PropertyRef Name="fOptionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tOrder__fTentID__6A30C649">
+    <End Role="tTent" Type="Self.tTent" Multiplicity="1" />
+    <End Role="tOrder" Type="Self.tOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tTent">
+        <PropertyRef Name="fTentID" />
+      </Principal>
+      <Dependent Role="tOrder">
+        <PropertyRef Name="fTentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tRent__fOrderID__04E4BC85">
+    <End Role="tOrder" Type="Self.tOrder" Multiplicity="1" />
+    <End Role="tRent" Type="Self.tRent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tOrder">
+        <PropertyRef Name="fOrderID" />
+      </Principal>
+      <Dependent Role="tRent">
+        <PropertyRef Name="fOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tTentPhot__fTent__6D0D32F4">
+    <End Role="tTent" Type="Self.tTent" Multiplicity="1" />
+    <End Role="tTentPhoto" Type="Self.tTentPhoto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tTent">
+        <PropertyRef Name="fTentID" />
+      </Principal>
+      <Dependent Role="tTentPhoto">
+        <PropertyRef Name="fTentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tCampFavorite">
+    <End Role="tCampsite" Type="Self.tCampsite" Multiplicity="*" />
+    <End Role="tMember" Type="Self.tMember" Multiplicity="*" />
+  </Association>
+  <Association Name="tCampTag">
+    <End Role="tCampsite" Type="Self.tCampsite" Multiplicity="*" />
+    <End Role="tTag" Type="Self.tTag" Multiplicity="*" />
+  </Association>
+  <Association Name="tCommentLike">
+    <End Role="tComment" Type="Self.tComment" Multiplicity="*" />
+    <End Role="tMember" Type="Self.tMember" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="dbChicken22Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tCampsite" EntityType="Self.tCampsite" />
+    <EntitySet Name="tComment" EntityType="Self.tComment" />
+    <EntitySet Name="tMember" EntityType="Self.tMember" />
+    <EntitySet Name="tOptionCase" EntityType="Self.tOptionCase" />
+    <EntitySet Name="tOrder" EntityType="Self.tOrder" />
+    <EntitySet Name="tRent" EntityType="Self.tRent" />
+    <EntitySet Name="tTag" EntityType="Self.tTag" />
+    <EntitySet Name="tTent" EntityType="Self.tTent" />
+    <EntitySet Name="tTentPhoto" EntityType="Self.tTentPhoto" />
+    <AssociationSet Name="FK__tCampsite__fMemb__6383C8BA" Association="Self.FK__tCampsite__fMemb__6383C8BA">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tCampsite" EntitySet="tCampsite" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tComment__fCamps__7B5B524B" Association="Self.FK__tComment__fCamps__7B5B524B">
+      <End Role="tCampsite" EntitySet="tCampsite" />
+      <End Role="tComment" EntitySet="tComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tOptionCa__fCamp__02084FDA" Association="Self.FK__tOptionCa__fCamp__02084FDA">
+      <End Role="tCampsite" EntitySet="tCampsite" />
+      <End Role="tOptionCase" EntitySet="tOptionCase" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tTent__fTendPric__66603565" Association="Self.FK__tTent__fTendPric__66603565">
+      <End Role="tCampsite" EntitySet="tCampsite" />
+      <End Role="tTent" EntitySet="tTent" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tComment__fMembe__7A672E12" Association="Self.FK__tComment__fMembe__7A672E12">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tComment" EntitySet="tComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tOrder__fMemberI__693CA210" Association="Self.FK__tOrder__fMemberI__693CA210">
+      <End Role="tMember" EntitySet="tMember" />
+      <End Role="tOrder" EntitySet="tOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tRent__fOptionID__05D8E0BE" Association="Self.FK__tRent__fOptionID__05D8E0BE">
+      <End Role="tOptionCase" EntitySet="tOptionCase" />
+      <End Role="tRent" EntitySet="tRent" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tOrder__fTentID__6A30C649" Association="Self.FK__tOrder__fTentID__6A30C649">
+      <End Role="tTent" EntitySet="tTent" />
+      <End Role="tOrder" EntitySet="tOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tRent__fOrderID__04E4BC85" Association="Self.FK__tRent__fOrderID__04E4BC85">
+      <End Role="tOrder" EntitySet="tOrder" />
+      <End Role="tRent" EntitySet="tRent" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tTentPhot__fTent__6D0D32F4" Association="Self.FK__tTentPhot__fTent__6D0D32F4">
+      <End Role="tTent" EntitySet="tTent" />
+      <End Role="tTentPhoto" EntitySet="tTentPhoto" />
+    </AssociationSet>
+    <AssociationSet Name="tCampFavorite" Association="Self.tCampFavorite">
+      <End Role="tCampsite" EntitySet="tCampsite" />
+      <End Role="tMember" EntitySet="tMember" />
+    </AssociationSet>
+    <AssociationSet Name="tCampTag" Association="Self.tCampTag">
+      <End Role="tCampsite" EntitySet="tCampsite" />
+      <End Role="tTag" EntitySet="tTag" />
+    </AssociationSet>
+    <AssociationSet Name="tCommentLike" Association="Self.tCommentLike">
+      <End Role="tComment" EntitySet="tComment" />
+      <End Role="tMember" EntitySet="tMember" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="025a138a63124c099524518deb678666" Name="Diagram1">
+        <EntityTypeShape EntityType="dbChicken22Model.tCampsite" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbChicken22Model.tComment" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbChicken22Model.tMember" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbChicken22Model.tOptionCase" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbChicken22Model.tOrder" Width="1.5" PointX="7.5" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbChicken22Model.tRent" Width="1.5" PointX="9.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbChicken22Model.tTag" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbChicken22Model.tTent" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbChicken22Model.tTentPhoto" Width="1.5" PointX="5.25" PointY="13.125" IsExpanded="true" />
+        <AssociationConnector Association="dbChicken22Model.FK__tCampsite__fMemb__6383C8BA" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.FK__tComment__fCamps__7B5B524B" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.FK__tOptionCa__fCamp__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.FK__tTent__fTendPric__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.FK__tComment__fMembe__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.FK__tOrder__fMemberI__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.FK__tRent__fOptionID__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.FK__tOrder__fTentID__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.FK__tRent__fOrderID__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.FK__tTentPhot__fTent__6D0D32F4" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.tCampFavorite" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.tCampTag" ManuallyRouted="false" />
+        <AssociationConnector Association="dbChicken22Model.tCommentLike" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

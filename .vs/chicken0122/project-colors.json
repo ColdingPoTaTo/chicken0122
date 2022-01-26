@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e57e0258-766e-47a0-9c8e-3b9cdc342c06": {
+      "ProjectGuid": "e57e0258-766e-47a0-9c8e-3b9cdc342c06",
+      "DisplayName": "chicken0122",
+      "ColorIndex": 0
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "其他檔案",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 1
+}
